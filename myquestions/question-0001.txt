@@ -1,6 +1,6 @@
-El Problema: Tienes un DataFrame con una columna categórica y quieres convertirla en variables numéricas para poder usarla en un modelo.
-Tu Misión: Escribe una función llamada codificar_variable(df, col) que realice lo siguiente:
+El Problema: Tienes un DataFrame con variables numéricas y quieres identificar qué filas tienen todos sus valores iguales entre sí, ya que pueden indicar registros anómalos o errores en los datos.
+Tu Misión: Escribe una función llamada detectar_filas_constantes(df) que realice lo siguiente:
 
-- Aplique One-Hot Encoding sobre la columna especificada utilizando pd.get_dummies.
-- Elimine la columna original.
-- Devuelva un DataFrame con las nuevas columnas codificadas junto con las demás columnas originales.
+- Seleccione únicamente las columnas numéricas del DataFrame.
+- Identifique las filas donde todos los valores de la fila sean iguales.
+- Devuelva una lista de índices (enteros) correspondientes a esas filas.
