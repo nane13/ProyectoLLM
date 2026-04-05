@@ -1,4 +1,6 @@
-El Problema: Tienes un DataFrame con variables numéricas y quieres identificar qué filas contienen valores faltantes en al menos una columna.
+El Problema: 
+Tienes un DataFrame con variables numéricas y quieres identificar qué filas contienen valores faltantes en al menos una columna.
+
 Tu Misión: Escribe una función llamada identificar_filas_con_nan(df) que realice lo siguiente:
 
 - Identifique las filas que contienen al menos un valor NaN.
