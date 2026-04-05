@@ -1,7 +1,9 @@
-El Problema: Tienes un DataFrame con variables numéricas y quieres identificar la columna con mayor variabilidad.
+El Problema:
+Tienes un DataFrame con variables numéricas y quieres identificar la columna con mayor variabilidad.
+
 Tu Misión: Escribe una función llamada columna_mayor_varianza(df) que realice lo siguiente:
 
 - Seleccione únicamente las columnas numéricas del DataFrame.
-- Calcule la varianza de cada columna.
+- Utilice VarianceThreshold de sklearn para calcular la varianza de las columnas.
 - Identifique la columna con mayor varianza.
 - Devuelva el nombre de esa columna como un string.
