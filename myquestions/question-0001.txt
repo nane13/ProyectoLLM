@@ -1,0 +1,6 @@
+El Problema: Tienes un DataFrame con una columna categórica y quieres convertirla en variables numéricas para poder usarla en un modelo.
+Tu Misión: Escribe una función llamada codificar_variable(df, col) que realice lo siguiente:
+
+- Aplique One-Hot Encoding sobre la columna especificada utilizando pd.get_dummies.
+- Elimine la columna original.
+- Devuelva un DataFrame con las nuevas columnas codificadas junto con las demás columnas originales.
