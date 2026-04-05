@@ -1,0 +1,6 @@
+El Problema: Tienes un DataFrame con variables numéricas y quieres identificar qué columnas tienen valores constantes, ya que no aportan información útil para el análisis.
+Tu Misión: Escribe una función llamada detectar_columnas_constantes(df) que realice lo siguiente:
+
+- Seleccione únicamente las columnas numéricas del DataFrame.
+- Identifique cuáles de esas columnas tienen exactamente un solo valor distinto.
+- Devuelva una lista de Python con los nombres de las columnas constantes.
