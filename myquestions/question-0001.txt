@@ -1,4 +1,6 @@
-El Problema: Tienes un DataFrame con variables numéricas y quieres identificar qué filas tienen todos sus valores iguales entre sí, ya que pueden indicar registros anómalos o errores en los datos.
+El Problema:
+Tienes un DataFrame con variables numéricas y quieres identificar qué filas tienen todos sus valores iguales entre sí, ya que pueden indicar registros anómalos o errores en los datos.
+
 Tu Misión: Escribe una función llamada detectar_filas_constantes(df) que realice lo siguiente:
 
 - Seleccione únicamente las columnas numéricas del DataFrame.
