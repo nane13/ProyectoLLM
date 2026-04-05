@@ -1,6 +1,9 @@
-El Problema:Tienes un DataFrame con variables categóricas y numéricas, y quieres identificar aquellas columnas que tienen poca variabilidad, ya que aportan poca información al análisis.
+El Problema:
+Tienes un DataFrame con variables categóricas y numéricas, y quieres identificar aquellas columnas que tienen poca variabilidad, ya que aportan poca información al análisis.
+
 Tu Misión: Escribe una función llamada detectar_columnas_baja_cardinalidad(df, umbral) que realice lo siguiente:
 
-- Calcule el número de valores únicos de cada columna del DataFrame.
-- Identifique las columnas que tienen menos de umbral valores únicos.
-- Devuelva una lista de nombres de columnas que cumplen esta condición.
+Calcule el número de valores únicos de cada columna del DataFrame.
+Identifique las columnas que tienen menos de umbral valores únicos.
+Sobre las columnas numéricas, aplique VarianceThreshold de sklearn para identificar aquellas con varianza cero.
+Devuelva una lista de nombres de columnas que cumplen la condición de baja cardinalidad.
