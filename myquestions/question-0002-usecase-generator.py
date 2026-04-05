@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import random
-from sklearn.feature_selection import VarianceThreshold
 
 def generar_caso_de_uso_detectar_columnas_baja_cardinalidad():
     """
@@ -10,9 +9,11 @@ def generar_caso_de_uso_detectar_columnas_baja_cardinalidad():
     """
 
     n_rows = random.randint(6, 12)
-
     n_cols = random.randint(3, 5)
 
+    # ---------------------------------------------------------
+    # 1. Generar DataFrame aleatorio
+    # ---------------------------------------------------------
     data = {}
     for i in range(n_cols):
         col_name = f"col_{i}"
@@ -34,12 +35,13 @@ def generar_caso_de_uso_detectar_columnas_baja_cardinalidad():
 
     umbral = random.randint(2, 4)
 
+    # Asegurar que haya al menos una columna de baja cardinalidad
     if all(df[col].nunique() >= umbral for col in df.columns):
         col_random = random.choice(df.columns)
         df[col_random] = np.random.choice([1, 1, 2], size=n_rows)
 
     # ---------------------------------------------------------
-    # INPUT
+    # 2. INPUT
     # ---------------------------------------------------------
     input_data = {
         "df": df.copy(),
@@ -47,24 +49,30 @@ def generar_caso_de_uso_detectar_columnas_baja_cardinalidad():
     }
 
     # ---------------------------------------------------------
-    # OUTPUT
+    # 3. OUTPUT (Ground Truth)
     # ---------------------------------------------------------
+
+    # A. Columnas con baja cardinalidad
     cols_baja_card = [
         col for col in df.columns
         if df[col].nunique() < umbral
     ]
 
-    # (Paso sklearn adicional, aunque no afecta output final)
+    # B. Columnas numéricas con varianza cero
     df_num = df.select_dtypes(include=[np.number])
-    if not df_num.empty:
-        selector = VarianceThreshold()
-        selector.fit(df_num)
 
-    output_data = cols_baja_card
+    cols_var_cero = []
+    if not df_num.empty:
+        varianzas = df_num.var()
+        cols_var_cero = varianzas[varianzas == 0].index.tolist()
+
+    # C. Unión de ambas condiciones
+    output_data = list(set(cols_baja_card + cols_var_cero))
 
     return input_data, output_data
 
 
+# --- Ejemplo de uso ---
 if __name__ == "__main__":
     entrada, salida = generar_caso_de_uso_detectar_columnas_baja_cardinalidad()
 
